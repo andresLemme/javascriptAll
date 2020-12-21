@@ -49,10 +49,10 @@ const palimdromo = (texto = "") =>{
     : console.info(`No es un palindromo, Palabra original es ${texto} Palabra al reves ${alReves}`)
 }
 
-palimdromo()
-palimdromo("Hola Mundo")
-palimdromo("SaLas")
-palimdromo("AmOR")
+// palimdromo()
+// palimdromo("Hola Mundo")
+// palimdromo("SaLas")
+// palimdromo("AmOR")
 
 
 console.log("------------")
@@ -62,4 +62,14 @@ console.log("------------")
 
 /*8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.*/
 
+const eliminarCaracteres = (texto="", patron="") => {
+ (!texto)
+? console.warn("No ingresaste un texto")
+:(!patron)
+?console.warn("No ingresaste un patron de caracteres")
+: console.info(texto.replace(new RegExp(patron, "ig"),""))
+}
 
+eliminarCaracteres()
+eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5")
+eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
