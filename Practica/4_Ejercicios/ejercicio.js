@@ -97,4 +97,4 @@ convertir(2, true);
 convertir(2, "hola");
 convertir(2, "D");
 convertir(100, "C");
-convertir(20, "F");
+convertir(50, "F");
