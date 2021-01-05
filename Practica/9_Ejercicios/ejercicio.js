@@ -35,10 +35,46 @@ this.estreno = estreno,
 this.pais = pais,
 this.generos = generos,
 this.calificacion = calificacion
+
+this.validarIMDB(id)
 }
 
+validarCadena(propiedad, valor){
+  if (!valor) return console.error(`${propiedad} "${valor} esta vacia"`)
+  if(typeof valor !== "string") return console.error(`${propiedad} "${valor}" ingresado, NO es una cadena de texto`)
+  return true
+}
 
+validadLogCadena(propiedad, valor, longitud){
+  if (valor.length > longitud) {
+    return console.error(`${propiedad} "${valor}" excede el número de caracteres permitidos(${longitud})`)
+  }
+  return true
+}
+
+validarIMDB(id){
+  if(this.validarCadena("IMDB id" , id)){
+    if(!(/^([a-z]){2}([0-9]){7}$/.test(id))){
+      return console.error(`IMDB id "${id}" no es valido debe tener 9 caracteres, los 2 primeros letras minúsculas, los restantes números`)
+    }
+  }
+}
+
+validarTitulo(titulo){
+  if(this.validarCadena("Titulo" , titulo)){
+    this.validadLogCadena("Titulo", titulo, 100)
+  }
+}
+
+validarDirector(director){
+  if(this.validarCadena("Director" , director)){
+    this.validadLogCadena("Director", director, 50)
+  }
+}
 
 }
 
-const peli = new Pelicula({})
+const peli = new Pelicula({
+  id: "ee1234564",
+  titulo:"ddddddddddddd"
+})
