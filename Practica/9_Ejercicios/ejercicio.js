@@ -41,7 +41,7 @@ this.validarIMDB(id)
 
 validarCadena(propiedad, valor){
   if (!valor) return console.error(`${propiedad} "${valor} esta vacia"`)
-  if(typeof valor !== "string") return console.error(`${propiedad} "${valor}" ingresado, NO es una cadena de texto`)
+  if(typeof valor !=="string") return console.error(`${propiedad} "${valor}" ingresado, NO es una cadena de texto`)
   return true
 }
 
@@ -77,5 +77,7 @@ validarDirector(director){
 const peli = new Pelicula({
   id: "ee1234564",
   titulo:"Titulo de la peli",
-  director:"Director de la peli"
+  director:"Director de la peli",
+  
+  
 })
