@@ -76,5 +76,6 @@ validarDirector(director){
 
 const peli = new Pelicula({
   id: "ee1234564",
-  titulo:"ddddddddddddd"
+  titulo:"Titulo de la peli",
+  director:"Director de la peli"
 })
