@@ -36,7 +36,17 @@ this.pais = pais,
 this.generos = generos,
 this.calificacion = calificacion
 
-this.validarIMDB(id)
+this.validarIMDB(id),
+this.validarTitulo(titulo),
+this.validarDirector(director),
+this.validarEstreno(estreno)
+}
+
+validarNumero(propiedad, valor) {
+  if (!valor) return console.warn(`${propiedad} ${valor} esta vacio`)
+  if (typeof valor !== "number") return console.warn(`${propiedad} ${valor} ingresado No es un nùmero`)
+
+  return true
 }
 
 validarCadena(propiedad, valor){
@@ -50,6 +60,15 @@ validadLogCadena(propiedad, valor, longitud){
     return console.error(`${propiedad} "${valor}" excede el número de caracteres permitidos(${longitud})`)
   }
   return true
+}
+
+validarArreglo(){
+  if (!valor) return console.warn(`${propiedad} "${valor}" esta vacio`)
+  if (!(valor instanceof Array)) return console.error(`${propiedad} "${valor}" no tiene datos`)
+
+  for (let cadena of valor) {
+    if(typeof cadena !== "string") return console.error(`el valor "${cadena}" ingresado No es una cadena de texto`)
+  }
 }
 
 validarIMDB(id){
@@ -72,12 +91,20 @@ validarDirector(director){
   }
 }
 
+validarEstreno(estreno){
+  if(this.validarNumero("Año de estreno" , estreno)){
+    if(!(/^([0-9])(4)$/.test(estreno))){
+      return console.error(`año de estreno "${estreno}" no es valido debe tener 4 digitos.`)
+    }
+  }
+}
+
 }
 
 const peli = new Pelicula({
   id: "ee1234564",
   titulo:"Titulo de la peli",
   director:"Director de la peli",
-  
-  
+  estreno: 2020
+
 })
