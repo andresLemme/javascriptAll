@@ -39,7 +39,19 @@ this.calificacion = calificacion
 this.validarIMDB(id),
 this.validarTitulo(titulo),
 this.validarDirector(director),
-this.validarEstreno(estreno)
+this.validarEstreno(estreno),
+this.validarPais(pais),
+this.validarGeneros(generos)
+
+}
+
+
+static get listaGeneros(){
+  return[ "Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"]
+}
+
+static generosAceptados(){
+  return console.info(`Los generos aceptados son: ${Pelicula.listaGeneros.join(",")}`)
 }
 
 validarNumero(propiedad, valor) {
@@ -62,49 +74,66 @@ validadLogCadena(propiedad, valor, longitud){
   return true
 }
 
-validarArreglo(){
+validarArreglo(propiedad, valor){
   if (!valor) return console.warn(`${propiedad} "${valor}" esta vacio`)
   if (!(valor instanceof Array)) return console.error(`${propiedad} "${valor}" no tiene datos`)
 
+  if (valor.length === 0) return console.error(`${propiedad} "${valor}" no tiene datos`)
+
   for (let cadena of valor) {
     if(typeof cadena !== "string") return console.error(`el valor "${cadena}" ingresado No es una cadena de texto`)
+
+    return true
   }
 }
 
 validarIMDB(id){
-  if(this.validarCadena("IMDB id" , id)){
-    if(!(/^([a-z]){2}([0-9]){7}$/.test(id))){
+  if(this.validarCadena("IMDB id" , id))
+    if(!(/^([a-z]){2}([0-9]){7}$/.test(id)))
       return console.error(`IMDB id "${id}" no es valido debe tener 9 caracteres, los 2 primeros letras minúsculas, los restantes números`)
-    }
-  }
+    
+  
 }
 
 validarTitulo(titulo){
-  if(this.validarCadena("Titulo" , titulo)){
+  if(this.validarCadena("Titulo" , titulo))
     this.validadLogCadena("Titulo", titulo, 100)
-  }
+  
 }
 
 validarDirector(director){
-  if(this.validarCadena("Director" , director)){
+  if(this.validarCadena("Director" , director))
     this.validadLogCadena("Director", director, 50)
-  }
+  
 }
 
 validarEstreno(estreno){
-  if(this.validarNumero("Año de estreno" , estreno)){
-    if(!(/^([0-9])(4)$/.test(estreno))){
-      return console.error(`año de estreno "${estreno}" no es valido debe tener 4 digitos.`)
-    }
-  }
+  if(this.validarNumero("Año de estreno00" , estreno))
+    if(!(/^([0-9])(4)$/.test(estreno)))
+      return console.error(`año de estreno "${estreno}" no es valido debe tener 4 digitos.`) 
 }
 
+validarPais(pais){
+  this.validarArreglo("Pais", pais)
 }
 
+validarGeneros(generos){
+ if (this.validarArreglo("Generos", generos)){
+   for (let genero of generos) {
+     console.log(genero)
+   }
+ }
+}
+
+
+}
+Pelicula.generosAceptados()
 const peli = new Pelicula({
   id: "ee1234564",
   titulo:"Titulo de la peli",
   director:"Director de la peli",
-  estreno: 2020
+  estreno: 2020,
+  pais:[],
+  generos:["Comedy", "Humor negro"]
 
 })
