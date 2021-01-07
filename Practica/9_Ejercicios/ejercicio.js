@@ -144,14 +144,47 @@ fichaTecnica(){
 
 }
 // Pelicula.generosAceptados()
-const peli = new Pelicula({
-  id: "ee1234564",
-  titulo:"Titulo de la peli",
-  director:"Director de la peli",
-  estreno: 2020,
-  pais:[],
-  generos:["Comedy", "Humor negro", "Sport"],
-  calificacion: 7.3
+// const peli = new Pelicula({
+//   id: "ee1234564",
+//   titulo:"Titulo de la peli",
+//   director:"Director de la peli",
+//   estreno: 2020,
+//   pais:[],
+//   generos:["Comedy", "Humor negro", "Sport"],
+//   calificacion: 7.3
 
-})
-peli.fichaTecnica()
+// })
+// peli.fichaTecnica()
+
+
+const misPelis = [
+  {
+    id:"tt0903027",
+    titulo: "Into the Wild",
+    director: "Sean Penn",
+    estreno: 2007,
+    pais:["Usa"],
+    generos: ["Adventure", "Biography", "Drama"],
+    calificacion: 8.2
+  },
+  {
+    id:"tt2030457",
+    titulo: "Rocky Balboa",
+    director: "Sylvester Stallone",
+    estreno: 2006,
+    pais:["Usa"],
+    generos: ["Action", "Sport", "Drama"],
+    calificacion: 6.2
+  },
+  {
+    id:"tt4466990",
+    titulo: "The dark Knight",
+    director: "Christopher Nolan",
+    estreno: 2008,
+    pais:["Usa"],
+    generos: ["Action", "Crime", "Drama"],
+    calificacion: 8.2
+  }
+]
+
+misPelis.forEach(el => new Pelicula(el).fichaTecnica)
