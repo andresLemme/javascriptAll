@@ -41,7 +41,8 @@ this.validarTitulo(titulo),
 this.validarDirector(director),
 this.validarEstreno(estreno),
 this.validarPais(pais),
-this.validarGeneros(generos)
+this.validarGeneros(generos),
+this.validarCalificacion(calificacion)
 
 }
 
@@ -129,10 +130,15 @@ validarGeneros(generos){
  }
 }
 
-validarCalificacion(estreno){
-  if(this.validarNumero("Año de estreno00" , estreno))
-    if(!(/^([0-9])(4)$/.test(estreno)))
-      return console.error(`año de estreno "${estreno}" no es valido debe tener 4 digitos.`) 
+validarCalificacion(calificacion){
+  if(this.validarNumero("Calificacion" , calificacion))
+    return (calificacion < 0 || calificacion > 10)
+    ? console.error("La calificacion tiene que estar en un rango de 0 y 10")
+    : this.calificacion.toFixed(1)
+}
+
+fichaTecnica(){
+  console.info(`Ficha Tecnica:\nTitulo:${this.titulo}\nDirector:${this.director}\nAño: ${this.estreno}\nPais: ${this.pais}\nGeneros: ${this.generos.join(",")}\nCalificacion: ${this.calificacion}\nIMDB id: ${this.id}`)
 }
 
 
@@ -144,6 +150,8 @@ const peli = new Pelicula({
   director:"Director de la peli",
   estreno: 2020,
   pais:[],
-  generos:["Comedy", "Humor negro", "Sport"]
+  generos:["Comedy", "Humor negro", "Sport"],
+  calificacion: 7.3
 
 })
+peli.fichaTecnica()
