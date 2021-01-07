@@ -120,20 +120,30 @@ validarPais(pais){
 validarGeneros(generos){
  if (this.validarArreglo("Generos", generos)){
    for (let genero of generos) {
-     console.log(genero)
+     console.log(genero, Pelicula.listaGeneros.includes(genero))
+     if(!Pelicula.listaGeneros.includes(genero)){
+       console.error(`Generos incorrectos ${generos.join(",")}`)
+       Pelicula.generosAceptados()
+     }
    }
  }
 }
 
+validarCalificacion(estreno){
+  if(this.validarNumero("Año de estreno00" , estreno))
+    if(!(/^([0-9])(4)$/.test(estreno)))
+      return console.error(`año de estreno "${estreno}" no es valido debe tener 4 digitos.`) 
+}
+
 
 }
-Pelicula.generosAceptados()
+// Pelicula.generosAceptados()
 const peli = new Pelicula({
   id: "ee1234564",
   titulo:"Titulo de la peli",
   director:"Director de la peli",
   estreno: 2020,
   pais:[],
-  generos:["Comedy", "Humor negro"]
+  generos:["Comedy", "Humor negro", "Sport"]
 
 })
