@@ -5,6 +5,9 @@ Operaciones de Concurrentes y Paralelas
 Operaciones Bloqueantes y No bloqueantes
 Operaciones Sincronas y   Asincronas
 
+Javascript usa un modelo asincrono y no bloqueante con
+un loop de eventos implementado en un solo hilo
+(single thread) para operaciones de entrada y salida (input/output)
 */
 
 /* Código Síncrono Bloquenate */
