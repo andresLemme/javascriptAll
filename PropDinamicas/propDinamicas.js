@@ -24,7 +24,7 @@ console.log("-------------")
 let aleatorios = Math.round(Math.random() * 10 + 5)
 const objetoUsuario = {
     prop: "valor",
-    [`id:${aleatorios}`] : "Hola Mundo ",
+    [`id_${aleatorios}`] : "Hola Mundo ",
 
 }
 console.log(objetoUsuario)
