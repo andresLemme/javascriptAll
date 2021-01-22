@@ -54,9 +54,11 @@ console.log("---------")
 function persona(nombre) {
     this.nombre = nombre
     // return console.log(this.nombre)
+
     // return function() {
     //     console.log(this.nombre)
     // }
+    
     return () => console.log(this.nombre)
 }
 let Andres = new persona("Andres")
