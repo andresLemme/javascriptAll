@@ -1,0 +1,11 @@
+{
+    "cadena": "Andres",
+    "numero": "39",
+    "booleano": "true",
+    "arreglo": ["estudiar", "andar en bici", "cocinar", "ser Felizzz"],
+    "objeto":{
+        "twitter": "@aflemme",
+        "email": "andres.lemme@gmail.com"
+    },
+    "nulo": null
+}
