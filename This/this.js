@@ -11,7 +11,6 @@ console.log(this.nombre)
 function imprimir() {
     console.log(this.nombre)
 }
-
 imprimir()
 
 console.log("---------")
