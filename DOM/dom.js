@@ -122,3 +122,27 @@ bodyTest.style.color = varYelowColor
 htmlTest.style.setProperty("--dark-color", "pink")
 varDarkColor = getComputedStyle(htmlTest).getPropertyValue("--dark-color")
 bodyTest.style.setProperty("--dark-color", varDarkColor)
+
+console.log("-----------------------")
+
+//Clases CSS en DOM
+
+const cardDom = document.querySelector(".card");
+console.log(cardDom)
+console.log(cardDom.className)
+console.log(cardDom.classList.contains("rotate-45"))
+cardDom.classList.add("rotate-45")
+console.log(cardDom.classList.contains("rotate-45"))
+console.log(cardDom.className)
+console.log(cardDom.classList)
+cardDom.classList.remove("rotate-45")
+console.log(cardDom.classList.contains("rotate-45"))
+cardDom.classList.toggle("rotate-45")
+console.log(cardDom.classList.contains("rotate-45"))
+cardDom.classList.toggle("rotate-45")
+console.log(cardDom.classList.contains("rotate-45"))
+cardDom.classList.toggle("rotate-45")
+cardDom.classList.replace("rotate-45", "rotate-135")
+cardDom.classList.add(".opacity-80", "sepia")
+cardDom.classList.remove(".opacity-80", "sepia")
+cardDom.classList.toggle(".opacity-80", "sepia")
