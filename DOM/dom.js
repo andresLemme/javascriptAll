@@ -160,4 +160,32 @@ let texto = `
 // whatIsDOM.innerText = texto ---> no se usa!!
 whatIsDOM.textContent = texto
 whatIsDOM.innerHTML = texto
-whatIsDOM.outerHTML = texto
+whatIsDOM.outerHTML = texto 
+
+
+//DOM Traversing : Recorriendo el DOM
+
+const cardss = document.querySelector(".cards")
+
+console.log(cardss)
+console.log(cardss.children)
+console.log(cardss.childNodes)
+console.log(cardss.children[2])
+
+console.log(cardss.parentElement)
+console.log(cardss.parentNode)
+
+console.log(cardss.firstChild)
+console.log(cardss.firstElementChild)
+console.log(cardss.lastElementChild)
+
+console.log(cardss.previousSibling)
+console.log(cardss.previousElementSibling)
+
+console.log(cardss.nextSibling)
+console.log(cardss.nextElementSibling)
+
+console.log(cardss.closest("div"))
+console.log(cardss.closest("body"))
+console.log(cardss.children[3].closest("section"))
+
