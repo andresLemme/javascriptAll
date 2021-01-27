@@ -146,3 +146,18 @@ cardDom.classList.replace("rotate-45", "rotate-135")
 cardDom.classList.add(".opacity-80", "sepia")
 cardDom.classList.remove(".opacity-80", "sepia")
 cardDom.classList.toggle(".opacity-80", "sepia")
+
+//DOM Texto y HTML
+
+const whatIsDOM = document.getElementById("que-es")
+
+let texto = `
+<p>El modelo de Objetos del Documento (DOM) es una APis para documentos HTML y XML</p>
+<p>Este proveé una representación estructural del documento, permitiendo modificar su contenido y presentación visual mediante código Js</p>
+<p><mark>El DOM no es parte de las especificaciones de JAvaScript, es una API para los navegadores</mark></p>
+`;
+
+// whatIsDOM.innerText = texto ---> no se usa!!
+whatIsDOM.textContent = texto
+whatIsDOM.innerHTML = texto
+whatIsDOM.outerHTML = texto
