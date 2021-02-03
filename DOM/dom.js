@@ -301,3 +301,5 @@ cardContent.forEach((el) =>{
 
 cardsTemplate.appendChild(fragmentto)
 
+
+
