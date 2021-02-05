@@ -302,4 +302,44 @@ cardContent.forEach((el) =>{
 cardsTemplate.appendChild(fragmentto)
 
 
+// Modificando elementos (cool Style)
 
+/*
+.insertAdjacent...
+  .insertAdjacentElement(position, el)
+  .insertAdjacentHTML(position, html)
+  .insertAdjacentText(position, text)
+Posiciones:
+  beforebegin(hermano anterior)
+  afterbegin(primer hijo)
+  beforeend(ultimo hijo)
+  afterend(hermano siguiente)
+*/
+
+// Manejadores de eventos
+
+function holaMundo() {
+  alert("Hola Mundo")
+  console.log(e)
+}
+
+//Evento semantico
+const btn = document.getElementById("eventoSemantico")
+btn.onclick = holaMundo
+btn.onclick = function (e) {
+  alert("Hola Mundo manejador de evento semantico")
+  console.log(e)
+  console.log(event)
+}
+
+// madejadores multiples
+const btn2 = document.getElementById("eventoMultiple")
+btn2.addEventListener("click",holaMundo)
+btn2.addEventListener("click", (e) =>{
+  alert("Hola Mundo Manejador de eventos")
+  console.log(e)
+  console.log(e.target)
+  console.log(e.type)
+  console.log(event)
+
+})
