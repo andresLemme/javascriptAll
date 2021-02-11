@@ -323,6 +323,11 @@ function holaMundo() {
   console.log(e)
 }
 
+function saludar(nombre = "Desconocido") {
+  alert(`Hola ${nombre} `)
+  console.log(event)
+}
+
 //Evento semantico
 const btn = document.getElementById("eventoSemantico")
 btn.onclick = holaMundo
@@ -343,3 +348,28 @@ btn2.addEventListener("click", (e) =>{
   console.log(event)
 
 })
+
+console.log("-----------------------------------")
+
+// Eventos con parametros & Remover eventos
+
+//sin parametros
+btn2.addEventListener("click", saludar)
+
+//pasando parametros a un evento -
+btn2.addEventListener("click", () =>{
+  saludar(),
+  saludar("Andres")
+})
+
+//REmover eventos de un elemento
+
+const eventRemove = document.getElementById("eventoRemover")
+const removerdclick = (e) =>{
+  alert(`Removiendo el evento ${e.type}`)
+  console.log(e)
+  eventRemove.removeEventListener("dblclick", removerdclick) 
+  eventRemove.disable = true 
+ }
+eventRemove.addEventListener("dblclick", removerdclick )
+
