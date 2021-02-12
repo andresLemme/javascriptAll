@@ -87,39 +87,39 @@ console.log("---------------------------------");
 
 //DOM Estilos y Variables CSS
 
-const linkDom = document.querySelector(".link-dom");
-console.log(linkDom.style);
-console.log(linkDom.getAttribute("style"));
-console.log(linkDom.style.backgroundColor);
-console.log(linkDom.style.color);
-console.log(window.getComputedStyle(linkDom));
-console.log(getComputedStyle(linkDom).getPropertyValue("color"));
+// const linkDom = document.querySelector(".link-dom");
+// console.log(linkDom.style);
+// console.log(linkDom.getAttribute("style"));
+// console.log(linkDom.style.backgroundColor);
+// console.log(linkDom.style.color);
+// console.log(window.getComputedStyle(linkDom));
+// console.log(getComputedStyle(linkDom).getPropertyValue("color"));
 
-linkDom.style.setProperty("text-decoration", "none");
-linkDom.style.setProperty("display", "block");
-linkDom.style.textAlign = "center";
-linkDom.style.marginLeft = "auto";
-linkDom.style.marginRight = "auto";
-linkDom.style.padding = "1rem";
-linkDom.style.borderRadius = ".5rem";
-console.log(getComputedStyle(linkDom));
+// linkDom.style.setProperty("text-decoration", "none");
+// linkDom.style.setProperty("display", "block");
+// linkDom.style.textAlign = "center";
+// linkDom.style.marginLeft = "auto";
+// linkDom.style.marginRight = "auto";
+// linkDom.style.padding = "1rem";
+// linkDom.style.borderRadius = ".5rem";
+// console.log(getComputedStyle(linkDom));
 
 //Variables CSS Custom Properties CSS
 
-const htmlTest = document.documentElement;
-const bodyTest = document.body;
-let varDarkColor = getComputedStyle(htmlTest).getPropertyValue("--dark-color");
-let varYelowColor = getComputedStyle(htmlTest).getPropertyValue(
-  "--yelow-color"
-);
-console.log(varDarkColor, varYelowColor);
+// const htmlTest = document.documentElement;
+// const bodyTest = document.body;
+// let varDarkColor = getComputedStyle(htmlTest).getPropertyValue("--dark-color");
+// let varYelowColor = getComputedStyle(htmlTest).getPropertyValue(
+//   "--yelow-color"
+// );
+// console.log(varDarkColor, varYelowColor);
 
-bodyTest.style.backgroundColor = varDarkColor;
-bodyTest.style.color = varYelowColor;
+// bodyTest.style.backgroundColor = varDarkColor;
+// bodyTest.style.color = varYelowColor;
 
-htmlTest.style.setProperty("--dark-color", "pink");
-varDarkColor = getComputedStyle(htmlTest).getPropertyValue("--dark-color");
-bodyTest.style.setProperty("--dark-color", varDarkColor);
+// htmlTest.style.setProperty("--dark-color", "pink");
+// varDarkColor = getComputedStyle(htmlTest).getPropertyValue("--dark-color");
+// bodyTest.style.setProperty("--dark-color", varDarkColor);
 
 console.log("-----------------------");
 
@@ -190,61 +190,61 @@ console.log(cardss.children[3].closest("section"));
 
 //Elementos
 
-const figureCard = document.createElement("figure");
-const imgCard = document.createElement("img");
-const figCaption = document.createElement("figcaption");
-const figCaptionText = document.createTextNode("Animals");
-const cards = document.querySelector(".cards");
+// const figureCard = document.createElement("figure");
+// const imgCard = document.createElement("img");
+// const figCaption = document.createElement("figcaption");
+// const figCaptionText = document.createTextNode("Animals");
+// const cards = document.querySelector(".cards");
 
-imgCard.setAttribute("src", "https://placeimg.com/200/200/animals");
-imgCard.setAttribute("alt", "Animals");
-figureCard.classList.add("card");
+// imgCard.setAttribute("src", "https://placeimg.com/200/200/animals");
+// imgCard.setAttribute("alt", "Animals");
+// figureCard.classList.add("card");
 
-figCaption.appendChild(figCaptionText);
+// figCaption.appendChild(figCaptionText);
 
-figureCard.appendChild(imgCard), figureCard.appendChild(figCaption);
-cards.appendChild(figureCard);
+// figureCard.appendChild(imgCard), figureCard.appendChild(figCaption);
+// cards.appendChild(figureCard);
 
-const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"];
-const ulSec = document.createElement("ul");
+// const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"];
+// const ulSec = document.createElement("ul");
 
-document.write("<h3>Estaciones del año</h3>");
-document.body.appendChild(ulSec);
+// document.write("<h3>Estaciones del año</h3>");
+// document.body.appendChild(ulSec);
 
-document.body.appendChild(ulSec);
+// document.body.appendChild(ulSec);
 
-estaciones.forEach((el) => {
-  const list = document.createElement("li");
-  (list.textContent = el), ulSec.appendChild(list);
-});
+// estaciones.forEach((el) => {
+//   const list = document.createElement("li");
+//   (list.textContent = el), ulSec.appendChild(list);
+// });
 
-const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo"];
-const desList = document.createElement("ul");
+// const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo"];
+// const desList = document.createElement("ul");
 
-document.write("<h3>Meses del año</h3>");
-document.body.appendChild(desList);
+// document.write("<h3>Meses del año</h3>");
+// document.body.appendChild(desList);
 
-meses.forEach((element) => {
-  const lista2 = document.createElement("li");
-  lista2.textContent = element;
-  desList.appendChild(lista2);
-});
+// meses.forEach((element) => {
+//   const lista2 = document.createElement("li");
+//   lista2.textContent = element;
+//   desList.appendChild(lista2);
+// });
 
-const continentes = ["Africa", "America", "Asia", "Europa", "Oceania"];
-const ul3 = document.createElement("ul");
+// const continentes = ["Africa", "America", "Asia", "Europa", "Oceania"];
+// const ul3 = document.createElement("ul");
 
-document.write("<h3>Continentes del Mundo</h3>");
-document.body.appendChild(ul3);
-ul3.innerHTML = "";
-continentes.forEach((el) => (ul3.innerHTML += `<li>${el}</li>`));
+// document.write("<h3>Continentes del Mundo</h3>");
+// document.body.appendChild(ul3);
+// ul3.innerHTML = "";
+// continentes.forEach((el) => (ul3.innerHTML += `<li>${el}</li>`));
 
-const continentes2 = ["Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania"];
-const ul4 = document.createElement("ul")
+// const continentes2 = ["Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania","Africa", "America", "Asia", "Europa", "Oceania"];
+// const ul4 = document.createElement("ul")
 
-document.write("<h3>De nuevo los continentes</h3>")
-document.body.appendChild(ul4)
-ul4.innerHTML = ""
-continentes2.forEach(el => (ul4.innerHTML += `<li>${el}</li>`))
+// document.write("<h3>De nuevo los continentes</h3>")
+// document.body.appendChild(ul4)
+// ul4.innerHTML = ""
+// continentes2.forEach(el => (ul4.innerHTML += `<li>${el}</li>`))
 
 
 //Fragmentos
@@ -373,3 +373,24 @@ const removerdclick = (e) =>{
  }
 eventRemove.addEventListener("dblclick", removerdclick )
 
+//Flujo de eventos
+
+function flujoEventos(e){
+  console.log(`Hola te saluda ${this.className} el click que lo originó ${e.target.className}`)
+}
+
+const divsEventos = document.querySelectorAll(".eventos-flujo div")
+console.log(divsEventos)
+
+divsEventos.forEach(div =>{
+  //Fase burbuja
+  //genera una captura de de afuera hacia adentro, sepuedo agregar false pero por defecto lo toma
+  // div.addEventListener("click", flujoEventos)
+  //Fase captura
+  ////genera una captura de adentro hacia afuera
+  // div.addEventListener("click", flujoEventos, true)
+  div.addEventListener("click", flujoEventos,{
+    capture: true,
+    once: true
+  })
+})
