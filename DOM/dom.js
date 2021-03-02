@@ -246,61 +246,72 @@ console.log(cardss.children[3].closest("section"));
 // ul4.innerHTML = ""
 // continentes2.forEach(el => (ul4.innerHTML += `<li>${el}</li>`))
 
-
 //Fragmentos
 
-const meses2 = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-const ul5 = document.createElement("ul")
-const fragmentt = document.createDocumentFragment()
+const meses2 = [
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
+];
+const ul5 = document.createElement("ul");
+const fragmentt = document.createDocumentFragment();
 meses2.forEach((el) => {
-    const lis2 = document.createElement("li")
-    lis2.textContent = el
-    fragmentt.appendChild(lis2)
-})
-document.write("<h3>Meses del año con Fragmento</h3>")
-ul5.appendChild(fragmentt)
-document.body.appendChild(ul5)
-console.log("-----Template------")
+  const lis2 = document.createElement("li");
+  lis2.textContent = el;
+  fragmentt.appendChild(lis2);
+});
+document.write("<h3>Meses del año con Fragmento</h3>");
+ul5.appendChild(fragmentt);
+document.body.appendChild(ul5);
+console.log("-----Template------");
 
 //Template
-const cardsTemplate = document.querySelector(".cards")
-const template = document.getElementById("template-card").content
-const fragmentto = document.createDocumentFragment()
+const cardsTemplate = document.querySelector(".cards");
+const template = document.getElementById("template-card").content;
+const fragmentto = document.createDocumentFragment();
 cardContent = [
-    {
-        title: "Tecnología",
-        img: "https://placeimg.com/200/200/tech",
-      },
-      {
-        title: "Animales",
-        img: "https://placeimg.com/200/200/animals",
-      },
-      {
-        title: "Arquitectura",
-        img: "https://placeimg.com/200/200/arch",
-      },
-      {
-        title: "Gente",
-        img: "https://placeimg.com/200/200/people",
-      },
-      {
-        title: "Naturaleza",
-        img: "https://placeimg.com/200/200/nature",
-      },
-]
+  {
+    title: "Tecnología",
+    img: "https://placeimg.com/200/200/tech",
+  },
+  {
+    title: "Animales",
+    img: "https://placeimg.com/200/200/animals",
+  },
+  {
+    title: "Arquitectura",
+    img: "https://placeimg.com/200/200/arch",
+  },
+  {
+    title: "Gente",
+    img: "https://placeimg.com/200/200/people",
+  },
+  {
+    title: "Naturaleza",
+    img: "https://placeimg.com/200/200/nature",
+  },
+];
 
-cardContent.forEach((el) =>{
-    template.querySelector("img").setAttribute("src",el.img)
-    template.querySelector("img").setAttribute("alt", el.title)
-    template.querySelector("figcaption").textContent = el.title
+cardContent.forEach((el) => {
+  template.querySelector("img").setAttribute("src", el.img);
+  template.querySelector("img").setAttribute("alt", el.title);
+  template.querySelector("figcaption").textContent = el.title;
 
-    let clone = document.importNode(template, true)
+  let clone = document.importNode(template, true);
 
-    fragmentto.appendChild(clone)
-})
+  fragmentto.appendChild(clone);
+});
 
-cardsTemplate.appendChild(fragmentto)
-
+cardsTemplate.appendChild(fragmentto);
 
 // Modificando elementos (cool Style)
 
@@ -319,64 +330,64 @@ Posiciones:
 // Manejadores de eventos
 
 function holaMundo() {
-  alert("Hola Mundo")
-  console.log(e)
+  alert("Hola Mundo");
+  console.log(e);
 }
 
 function saludar(nombre = "Desconocido") {
-  alert(`Hola ${nombre} `)
-  console.log(event)
+  alert(`Hola ${nombre} `);
+  console.log(event);
 }
 
 //Evento semantico
-const btn = document.getElementById("eventoSemantico")
-btn.onclick = holaMundo
+const btn = document.getElementById("eventoSemantico");
+btn.onclick = holaMundo;
 btn.onclick = function (e) {
-  alert("Hola Mundo manejador de evento semantico")
-  console.log(e)
-  console.log(event)
-}
+  alert("Hola Mundo manejador de evento semantico");
+  console.log(e);
+  console.log(event);
+};
 
 // madejadores multiples
-const btn2 = document.getElementById("eventoMultiple")
-btn2.addEventListener("click",holaMundo)
-btn2.addEventListener("click", (e) =>{
-  alert("Hola Mundo Manejador de eventos")
-  console.log(e)
-  console.log(e.target)
-  console.log(e.type)
-  console.log(event)
+const btn2 = document.getElementById("eventoMultiple");
+btn2.addEventListener("click", holaMundo);
+btn2.addEventListener("click", (e) => {
+  alert("Hola Mundo Manejador de eventos");
+  console.log(e);
+  console.log(e.target);
+  console.log(e.type);
+  console.log(event);
+});
 
-})
-
-console.log("-----------------------------------")
+console.log("-----------------------------------");
 
 // Eventos con parametros & Remover eventos
 
 //sin parametros
-btn2.addEventListener("click", saludar)
+btn2.addEventListener("click", saludar);
 
 //pasando parametros a un evento -
-btn2.addEventListener("click", () =>{
-  saludar(),
-  saludar("Andres")
-})
+btn2.addEventListener("click", () => {
+  saludar(), saludar("Andres");
+});
 
 //REmover eventos de un elemento
 
-const eventRemove = document.getElementById("eventoRemover")
-const removerdclick = (e) =>{
-  alert(`Removiendo el evento ${e.type}`)
-  console.log(e)
-  eventRemove.removeEventListener("dblclick", removerdclick) 
-  eventRemove.disable = true 
- }
-eventRemove.addEventListener("dblclick", removerdclick )
+const eventRemove = document.getElementById("eventoRemover");
+const removerdclick = (e) => {
+  alert(`Removiendo el evento ${e.type}`);
+  console.log(e);
+  eventRemove.removeEventListener("dblclick", removerdclick);
+  eventRemove.disable = true;
+};
+eventRemove.addEventListener("dblclick", removerdclick);
 
 //Flujo de eventos
 
-function flujoEventos(e){
-  console.log(`Hola te saluda ${this} el click que lo originó ${e.target.className}`)
+function flujoEventos(e) {
+  console.log(
+    `Hola te saluda ${this} el click que lo originó ${e.target.className}`
+  );
   // e.stopPropagation()
 }
 
@@ -398,7 +409,6 @@ function flujoEventos(e){
 // //   })
 // })
 
-
 // stopPropagation y preventDefault
 
 // linkEvento.addEventListener("click", (e) =>{
@@ -406,20 +416,62 @@ function flujoEventos(e){
 //   //cancela por defecto el comportamiento los elmentos del DOM
 //   // e.preventDefault()
 //   // e.stopPropagation()
- 
 
 // })
 
 // Delegacion de eventos
 
-document.addEventListener("click", (e) =>{
-  console.log("le diste click", e.target)
+document.addEventListener("click", (e) => {
+  console.log("le diste click", e.target);
   //matches -> busca un selector valido
   if (e.target.matches(".eventos-flujo a")) {
-    alert("Hola Soy Andres!!!")
-    e.preventDefault() 
+    alert("Hola Soy Andres!!!");
+    e.preventDefault();
   }
   if (e.target.matches(".eventos-flujo div")) {
-    flujoEventos(e)
+    flujoEventos(e);
   }
+});
+
+//Propiedades y eventos
+
+console.log(window.innerWidth);
+console.log(window.innerHeight);
+console.log(window.outerWidth);
+console.log(window.outerHeight);
+
+window.addEventListener("resize", (e) => {
+  console.clear()
+  console.log("--- Evento Resize---");
+  console.log(window.innerWidth);
+  console.log(window.innerHeight);
+  console.log(window.outerWidth);
+  console.log(window.outerHeight);
+  console.log(window.scrollX);
+  console.log(window.scrollY);
+  console.log(e)
+});
+
+window.addEventListener("scroll", (e) =>{
+  console.clear()
+  console.log("--- Evento Scroll---");
+  console.log(window.scrollX);
+  console.log(window.scrollY);
+  console.log(e)
+})
+
+window.addEventListener("load", (e) =>{
+  
+  console.log("--- Evento Load---");
+  console.log(window.screenX);
+  console.log(window.screenY);
+  console.log(e)
+})
+
+window.addEventListener("DOMContentLoaded", (e) =>{
+  
+  console.log("--- Evento DOMContentLoaded---");
+  console.log(window.screenX);
+  console.log(window.screenY);
+  console.log(e)
 })
