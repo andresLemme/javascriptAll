@@ -377,20 +377,34 @@ eventRemove.addEventListener("dblclick", removerdclick )
 
 function flujoEventos(e){
   console.log(`Hola te saluda ${this.className} el click que lo originó ${e.target.className}`)
+  // e.stopPropagation()
 }
 
 const divsEventos = document.querySelectorAll(".eventos-flujo div")
+const linkEvento = document.querySelector(".eventos-flujo a")
 console.log(divsEventos)
 
 divsEventos.forEach(div =>{
   //Fase burbuja
   //genera una captura de de afuera hacia adentro, sepuedo agregar false pero por defecto lo toma
-  // div.addEventListener("click", flujoEventos)
+  div.addEventListener("click", flujoEventos)
   //Fase captura
   ////genera una captura de adentro hacia afuera
   // div.addEventListener("click", flujoEventos, true)
-  div.addEventListener("click", flujoEventos,{
-    capture: true,
-    once: true
-  })
+//   div.addEventListener("click", flujoEventos,{
+//     capture: true,
+//     once: true
+//   })
+})
+
+
+// stopPropagation y preventDefault
+
+linkEvento.addEventListener("click", (e) =>{
+  alert("Hola Soy Andres!!!")
+  //cancela por defecto el comportamiento los elmentos del DOM
+  e.preventDefault()
+  e.stopPropagation()
+ 
+
 })
