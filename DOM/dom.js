@@ -376,35 +376,50 @@ eventRemove.addEventListener("dblclick", removerdclick )
 //Flujo de eventos
 
 function flujoEventos(e){
-  console.log(`Hola te saluda ${this.className} el click que lo originó ${e.target.className}`)
+  console.log(`Hola te saluda ${this} el click que lo originó ${e.target.className}`)
   // e.stopPropagation()
 }
 
-const divsEventos = document.querySelectorAll(".eventos-flujo div")
-const linkEvento = document.querySelector(".eventos-flujo a")
-console.log(divsEventos)
+// const divsEventos = document.querySelectorAll(".eventos-flujo div")
+// const linkEvento = document.querySelector(".eventos-flujo a")
+// console.log(divsEventos)
 
-divsEventos.forEach(div =>{
-  //Fase burbuja
-  //genera una captura de de afuera hacia adentro, sepuedo agregar false pero por defecto lo toma
-  div.addEventListener("click", flujoEventos)
-  //Fase captura
-  ////genera una captura de adentro hacia afuera
-  // div.addEventListener("click", flujoEventos, true)
-//   div.addEventListener("click", flujoEventos,{
-//     capture: true,
-//     once: true
-//   })
-})
+// divsEventos.forEach(div =>{
+//   //Fase burbuja
+//   //genera una captura de de afuera hacia adentro, sepuedo agregar false pero por defecto lo toma
+//   div.addEventListener("click", flujoEventos)
+
+//   //Fase captura
+//   ////genera una captura de adentro hacia afuera
+//   // div.addEventListener("click", flujoEventos, true)
+// //   div.addEventListener("click", flujoEventos,{
+// //     capture: true,
+// //     once: true
+// //   })
+// })
 
 
 // stopPropagation y preventDefault
 
-linkEvento.addEventListener("click", (e) =>{
-  alert("Hola Soy Andres!!!")
-  //cancela por defecto el comportamiento los elmentos del DOM
-  e.preventDefault()
-  e.stopPropagation()
+// linkEvento.addEventListener("click", (e) =>{
+//   alert("Hola Soy Andres!!!")
+//   //cancela por defecto el comportamiento los elmentos del DOM
+//   // e.preventDefault()
+//   // e.stopPropagation()
  
 
+// })
+
+// Delegacion de eventos
+
+document.addEventListener("click", (e) =>{
+  console.log("le diste click", e.target)
+  //matches -> busca un selector valido
+  if (e.target.matches(".eventos-flujo a")) {
+    alert("Hola Soy Andres!!!")
+    e.preventDefault() 
+  }
+  if (e.target.matches(".eventos-flujo div")) {
+    flujoEventos(e)
+  }
 })
