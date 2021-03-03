@@ -452,26 +452,55 @@ window.addEventListener("resize", (e) => {
   console.log(e)
 });
 
-window.addEventListener("scroll", (e) =>{
-  console.clear()
-  console.log("--- Evento Scroll---");
-  console.log(window.scrollX);
-  console.log(window.scrollY);
-  console.log(e)
+// window.addEventListener("scroll", (e) =>{
+//   console.clear()
+//   console.log("--- Evento Scroll---");
+//   console.log(window.scrollX);
+//   console.log(window.scrollY);
+//   console.log(e)
+// })
+
+// window.addEventListener("load", (e) =>{
+  
+//   console.log("--- Evento Load---");
+//   console.log(window.screenX);
+//   console.log(window.screenY);
+//   console.log(e)
+// })
+
+// window.addEventListener("DOMContentLoaded", (e) =>{
+  
+//   console.log("--- Evento DOMContentLoaded---");
+//   console.log(window.screenX);
+//   console.log(window.screenY);
+//   console.log(e)
+// })
+
+//Metodos BOM
+
+//todo lo que venga de window no es necesario poner window de nuevo
+// alert("Confirmacion")
+// confirm("Confir")
+
+const btnAbrir = document.getElementById("abrirVentana")
+const btnCerrar = document.getElementById("cerrarVentana")
+const btnImprimir = document.getElementById("imprimirVentana")
+let ventana;
+
+
+btnAbrir.addEventListener("click", (e) =>{
+  ventana = window.open("https://jonmircha.com");
+});
+btnCerrar.addEventListener("click", (e) =>{
+  ventana.close()
+});
+btnImprimir.addEventListener("click",(e) =>{
+  window.print()
 })
 
-window.addEventListener("load", (e) =>{
-  
-  console.log("--- Evento Load---");
-  console.log(window.screenX);
-  console.log(window.screenY);
-  console.log(e)
-})
+//BOM objetos -> URL, Hiatorial, Navegador
 
-window.addEventListener("DOMContentLoaded", (e) =>{
-  
-  console.log("--- Evento DOMContentLoaded---");
-  console.log(window.screenX);
-  console.log(window.screenY);
-  console.log(e)
-})
+//Url -> conocido como "location"
+
+console.log("---- Objeto Url (Location)-----")
+console.log(location)
