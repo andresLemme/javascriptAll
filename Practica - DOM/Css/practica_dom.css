@@ -65,8 +65,19 @@ img{
     right: 0;
     background-color: var(--second-modal-color);
     width: 100%;
+    transition: transform 0.3s ease;
+    /* De arriba */
+    transform: translate(0, -100%);
+    /* De abajo */
+    transform: translate(0, 100%);
+    /* De la derecha */
+    transform: translate(100%, 0);
+    /* De la izquierda */
+    transform: translate(-100%, 0);
+    }
 
-
+.panel.is-active{
+    transform: translate(0,0);
 }
  body .panel-btn{
     position: fixed;
