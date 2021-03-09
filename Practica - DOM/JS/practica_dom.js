@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   alarm("assets/alarma.mp3", "#activar-alerma", "#esacivar-alarma");
   countDown(
   "countDown", 
-  "Jun 03, 2022 18:30:00", "Feliz cumpleaños Andres!!!");
+  "Jun 03, 2022 18:30:00", 
+  "Feliz cumpleaños Andres!!!");
   scrollTopButton(".scroll-top-btn")
 });
 
