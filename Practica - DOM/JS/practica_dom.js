@@ -10,6 +10,7 @@ import deviceInfo from "./deteccionDispositivos.js";
 import networkStatus from "./deteccion_red.js";
 import webCam from "./deteccion_webCam.js";
 import getGeoLocation from "./Geolocalizacion.js";
+import searchFilter from "./FiltroBusqueda.js";
 
 
 document.addEventListener("DOMContentLoaded", (e) => { //espera a tener el arbol del DOM cargado para que funcione // Windown sw tiene que cargar todo para que funciones. CSS js etc!! 
@@ -32,7 +33,8 @@ document.addEventListener("DOMContentLoaded", (e) => { //espera a tener el arbol
   responsiveTester("resposive-tester"),
   deviceInfo("user-device"),
   webCam("webCam"),
-  getGeoLocation("geoLocation")
+  getGeoLocation("geoLocation"),
+  searchFilter(".card-filter", ".card")
 });
 
 document.addEventListener("keydown", (e) => {
