@@ -7,6 +7,7 @@ import darkThemes from "./darkLight.js";
 import responsiveMedia from "./objetos_responsive.js";
 import responsiveTester from "./prueba_responsive.js";
 import deviceInfo from "./deteccionDispositivos.js";
+import networkStatus from "./deteccion_red.js";
 
 document.addEventListener("DOMContentLoaded", (e) => { //espera a tener el arbol del DOM cargado para que funcione // Windown sw tiene que cargar todo para que funciones. CSS js etc!! 
   hamburgerMenu(".panel-btn", ".panel", ".menu a");
@@ -35,3 +36,4 @@ document.addEventListener("keydown", (e) => {
 });
 
 darkThemes(".dark-theme-btn", "dark-mode");
+networkStatus()

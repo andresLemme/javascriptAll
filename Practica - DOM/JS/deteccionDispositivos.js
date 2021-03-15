@@ -73,5 +73,6 @@ if (isDesktop.windows()) {
 //Redireccion
 if (isMobile.android()) {
     window.location.href = "http://www.teinvito.com.ar/" 
+    
 }
 }
