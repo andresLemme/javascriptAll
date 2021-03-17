@@ -13,6 +13,7 @@ import getGeoLocation from "./Geolocalizacion.js";
 import searchFilter from "./FiltroBusqueda.js";
 import draw from "./Sorteo.js";
 import slider from "./carrusel.js";
+import scrollSpy from "./scroll_espia.js";
 
 
 document.addEventListener("DOMContentLoaded", (e) => { //espera a tener el arbol del DOM cargado para que funcione // Windown sw tiene que cargar todo para que funciones. CSS js etc!! 
@@ -38,7 +39,8 @@ document.addEventListener("DOMContentLoaded", (e) => { //espera a tener el arbol
   getGeoLocation("geoLocation"),
   searchFilter(".card-filter", ".card"),
   draw("#winner-btn", ".player"),
-  slider()
+  slider(),
+  scrollSpy()
 });
 
 document.addEventListener("keydown", (e) => {
