@@ -354,3 +354,9 @@ color: var(--main-color);
     }
 
 }
+
+/* VIdeo inteligente */
+
+section#section13 video {
+    width: 100%;
+}

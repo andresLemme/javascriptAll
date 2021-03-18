@@ -14,6 +14,7 @@ import searchFilter from "./FiltroBusqueda.js";
 import draw from "./Sorteo.js";
 import slider from "./carrusel.js";
 import scrollSpy from "./scroll_espia.js";
+import smartVideo from "./VideoInteligente.js";
 
 
 document.addEventListener("DOMContentLoaded", (e) => { //espera a tener el arbol del DOM cargado para que funcione // Windown sw tiene que cargar todo para que funciones. CSS js etc!! 
@@ -40,7 +41,8 @@ document.addEventListener("DOMContentLoaded", (e) => { //espera a tener el arbol
   searchFilter(".card-filter", ".card"),
   draw("#winner-btn", ".player"),
   slider(),
-  scrollSpy()
+  scrollSpy(),
+  smartVideo()
 });
 
 document.addEventListener("keydown", (e) => {
