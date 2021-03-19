@@ -8,8 +8,13 @@ export default function smartVideo() {
       } else {
         entry.target.pause();
       }
+      window.addEventListener("visibilitychange", (e) =>{
+        document.visibilityState ==="visible" ? entry.target.play() : entry.target.pause()
+      })
     });
   };
+  
+  
   const observer = new IntersectionObserver(cb, { threshold: 0.5 });
   console.log(observer)
   $videos.forEach((el) => {
