@@ -35,7 +35,7 @@
         <a data-scroll-spy href="#section11">Sorteo Digital</a>
         <a data-scroll-spy href="#section12">Responsive Slider</a>
         <a data-scroll-spy href="#section13">Video Inteligente</a>
-        <a data-scroll-spy href="#section14">Seccion 14</a>
+        <a data-scroll-spy href="#section14">Validación de Formulario</a>
         <a data-scroll-spy href="#section15">Seccion 15</a>
       </nav>
     </aside>
@@ -183,7 +183,21 @@
         <video src="assets/video.mp4" muted controls loop data-smart-video></video>
       </section>
       <section id="section14" class="section" data-scroll-spy>
-        <h2>section 14</h2>
+        <h2>Validación de Formulario</h2>
+        <form class="contact-form">
+          <legend>Envíanos tus comentarios</legend>
+          <input type="text" name="name" placeholder="Escribe tu nombre" title="Nombre solo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+          <input type="email" name="email" placeholder="Ingrese su email" title="Email incorrecto" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+          <input type="text" name="subject" placeholder="Asunto a tratar" title="El asunto es requerido" required>
+          <textarea name="comments"  cols="50" rows="5" placeholder="Escribe tu comentario" title="Tu comentario no debe exceder los 255 caracteres" data-pattern="^.{1,255}$" required></textarea>
+          <input type="submit" value="Enviar">
+          <div class="contact-form-loader none">
+            <img src="assets/Iphone-spinner-2.gif" alt="Cargando">
+          </div>
+          <div class="contatac-form-response none">
+            <p>Los datos fueron enviados</p>
+          </div>
+        </form>
       </section>
       <section id="section15" class="section" data-scroll-spy>
         <h2>section 15</h2>
