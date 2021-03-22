@@ -16,7 +16,7 @@ export default function smartVideo() {
   
   
   const observer = new IntersectionObserver(cb, { threshold: 0.5 });
-  console.log(observer)
+  // console.log(observer)
   $videos.forEach((el) => {
     observer.observe(el);
   });

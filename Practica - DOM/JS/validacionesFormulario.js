@@ -1,7 +1,7 @@
 export default function contactFormValidation() {
   const $form = document.querySelector(".contact-form");
   const $inputs = document.querySelectorAll(".contact-form [required]");
-  console.log($inputs);
+  // console.log($inputs);
 
   $inputs.forEach((input) => {
     const $span = document.createElement("span");
@@ -16,7 +16,7 @@ export default function contactFormValidation() {
       let pattern = e.target.pattern || e.target.dataset.pattern; //dataset se guardan todos los attributes
       // console.log(e.target.pattern, pattern)
       if (pattern && e.target.value !== "") {
-        console.log("El imput tiene patron");
+        // console.log("El imput tiene patron");
         let regex = new RegExp(pattern);
         return !regex.exec(e.target.value)
           ? document.getElementById(e.target.name).classList.add("is-active")
@@ -25,7 +25,7 @@ export default function contactFormValidation() {
               .classList.remove("is-active");
       }
       if (!pattern) {
-        console.log("El imput NO tiene patron");
+        // console.log("El imput NO tiene patron");
         return e.target.value === ""
           ? document.getElementById(e.target.name).classList.add("is-active")
           : document

@@ -9,7 +9,7 @@ export default function webCam(id) {
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: false })
       .then((stream) => {
-        console.log(stream);
+        // console.log(stream);
         videoBox.srcOlject = stream;
         videoBox.play();
       })
@@ -18,7 +18,7 @@ export default function webCam(id) {
           "beforeBegin",
           `<p>Sucedió el siguiente error: <mark>${err}</mark></p>`
         );
-        console.log(`sucedió el siguiente error ${err}`);
+        // console.log(`sucedió el siguiente error ${err}`);
       });
   }
 }

@@ -8,7 +8,7 @@ export default function getGeoLocation(id) {
 
     const success = (position) => {
         const coords = position.coords;
-        console.log(position)
+        // console.log(position)
 
         idBox.innerHTML = `
         <p>Tu posición actual es</p>
@@ -23,7 +23,7 @@ export default function getGeoLocation(id) {
 
     const error = (err) => {
         idBox.innerHTML = `<p><mark>Error: ${err.code}: ${err.message}</mark></p>`
-        console.log(`Error: ${err.code}: ${err.message}`)
+        // console.log(`Error: ${err.code}: ${err.message}`)
     };
 
     navigator.geolocation.getCurrentPosition(success, error, options);

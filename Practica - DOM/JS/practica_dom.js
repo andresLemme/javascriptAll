@@ -16,6 +16,7 @@ import slider from "./carrusel.js";
 import scrollSpy from "./scroll_espia.js";
 import smartVideo from "./VideoInteligente.js";
 import contactFormValidation from "./validacionesFormulario.js";
+import speechReader from "./narador.js";
 
 
 document.addEventListener("DOMContentLoaded", (e) => { //espera a tener el arbol del DOM cargado para que funcione // Windown sw tiene que cargar todo para que funciones. CSS js etc!! 
@@ -53,4 +54,5 @@ document.addEventListener("keydown", (e) => {
 });
 
 darkThemes(".dark-theme-btn", "dark-mode");
-networkStatus()
+networkStatus(),
+speechReader()
