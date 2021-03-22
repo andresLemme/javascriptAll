@@ -26,14 +26,14 @@ export default function speechReader() {
     if (e.target === $speechSelect) {
       speechMessage.voice = voices.find(
         (voice) => voice.name === e.target.value
-      )
+      );
     }
     // console.log(speechMessage)
   });
   document.addEventListener("click", (e) => {
     if (e.target === $speechBtn) {
-      speechMessage.text = $speechTextArea.value
-      window.speechSynthesis.speak(speechMessage)
+      speechMessage.text = $speechTextArea.value;
+      window.speechSynthesis.speak(speechMessage);
     }
   });
 }
