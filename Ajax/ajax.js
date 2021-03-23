@@ -32,7 +32,7 @@
   xhr.send(); //4º enviar la pteticion con el metodo send
 })();
 
-//Fetch
+//Fetch api
 
 (() => {
   const $fetch = document.getElementById("fetch");
@@ -40,11 +40,11 @@
 
   fetch("https://jsonplaceholder.typicode.com/users")
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       return res.ok ? res.json() : Promise.reject(res);
     })
     .then((json) => {
-      console.log(json);
+      // console.log(json);
       json.forEach((el) => {
         const $li = document.createElement("li");
         $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
@@ -53,13 +53,44 @@
       $fetch.appendChild($fragment);
     })
     .catch((err) => {
-      console.log("Estamos en el catch", err);
+      // console.log("Estamos en el catch", err);
       let message = err.statusText || "Ocurrió un error";
       $fetch.innerHTML = `Error ${err.status}: ${message}`;
     })
     .finally(() => {
-      console.log(
-        "Esto se ejecutara independientemente del resultado de la promesa fetch"
-      );
+      // console.log(
+      //   "Esto se ejecutara independientemente del resultado de la promesa fetch | no es necesario"
+      // );
     });
+})();
+
+//Fetch api con Async-Await
+
+(() => {
+  const $fetchAsync = document.getElementById("fetch-async");
+  const $fragment = document.createDocumentFragment();
+
+  async function getData() {
+    try {
+      let res = await fetch("https://jsonplaceholder.typicode.com/user");
+      let json = await res.json();
+      console.log(res, json);
+
+      if (!res.ok) throw { status: res.status, statusText: res.statusText };
+
+      json.forEach((el) => {
+        const $li = document.createElement("li");
+        $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+        $fragment.appendChild($li);
+      });
+
+      $fetchAsync.appendChild($fragment);
+      
+    } catch (err) {
+      // console.log(`Estoy en el catch `, err)
+      let message = err.statusText || "Ocurrió un error";
+      $fetchAsync.innerHTML = `Error ${err.status}: ${message}`;
+    }
+  }
+  getData();
 })();
