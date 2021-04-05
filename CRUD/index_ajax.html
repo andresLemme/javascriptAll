@@ -82,7 +82,7 @@
           // data: null,
           url: "http://localhost:5555/santos",
           success: (res) => {
-            // console.log(res)
+            console.log(res)
 
             res.forEach((el) => {
               $template.querySelector(".name").textContent = el.nombre;
@@ -107,6 +107,60 @@
         });
       };
       document.addEventListener("DOMContentLoaded", getAll);
+
+      document.addEventListener("submit", (e) =>{
+        if (e.target === $form){
+          e.preventDefault()
+          if(!e.target.id.value){
+            //Create - Post
+            ajax({
+              url:"http://localhost:5555/santos",
+              method:"POST",
+              success: (res)=> location.reload(),
+              error: (err)=> $form.insertAdjacentHTML("afterend", `<p>${err}</p>`),
+              data:{
+                nombre:e.target.nombre.value,
+                constelacion:e.target.constelacion.value
+              } 
+            })
+          } else{
+            //Update - Put
+            ajax({
+              url:`http://localhost:5555/santos${e.target.id.value}`,
+              method:"PUT",
+              success: (res)=> location.reload(),
+              error: (err)=> $form.insertAdjacentHTML("afterend", `<p>${err}</p>`),
+              data:{
+                nombre:e.target.nombre.value,
+                constelacion:e.target.constelacion.value
+              } 
+            })
+          }
+        }
+      })
+
+      document.addEventListener("click", (e) =>{
+        if(e.target.matches(".edit")){
+          // alert("Presionaste el botón editar")
+          $title.textContent = "Editar Santos";
+          $form.nombre.value = e.target.dataset.name;
+          $form.constelacion.value = e.target.dataset.constellation;
+          $form.id.value = e.target.dataset.id;
+
+        }
+        if(e.target.matches(".delete")){
+         let isDeleted = confirm(`Estas seguro de elimiar el id ${e.target.dataset.id}`)
+         if (isDeleted){
+          ajax({
+              url:`http://localhost:5555/santos${e.target.dataset.id}`,
+              method:"DELETE",
+              success: (res)=> location.reload(),
+              error: (err)=> $form.insertAdjacentHTML("afterend", `<p>${err}</p>`),
+               
+            })
+         }
+        }
+      })
     </script>
   </body>
 </html>

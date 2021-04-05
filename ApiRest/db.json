@@ -29,6 +29,16 @@
       "name": "Saga",
       "constelacion": "Gemini",
       "id": 7
+    },
+    {
+      "nombre": "mu",
+      "constelacion": "Aries",
+      "id": 8
+    },
+    {
+      "nombre": "Andres",
+      "constelacion": "Aries",
+      "id": 9
     }
   ],
   "dioses": [
