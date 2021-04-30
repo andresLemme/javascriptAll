@@ -65,6 +65,7 @@ function contactForm() {
       .finally(() => {
            setTimeout(() => {
              $response.classList.add("none");
+             $response.innerHTML= ""
            }, 3000)
          })
 
