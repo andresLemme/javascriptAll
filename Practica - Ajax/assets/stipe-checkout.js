@@ -19,12 +19,21 @@ Promise.all([
   .then((json) => {
     products = json[0].data;
     prices = json[1].data;
-    console.log(products, prices);
+    // console.log(prices)
+    // console.log(products, prices);
     prices.forEach((el) => {
       let productData = products.filter((product) => product.id === el.product);
       console.log(productData);
 
       $template.querySelector(".taco").setAttribute("data-price", el.id);
+      $template.querySelector("img").src=productData[0].images[0]
+      $template.querySelector("img").alt=productData[0].name
+      $template.querySelector("figcaption").innerHTML = 
+      `${productData[0].name}
+      <br>
+      $ ${el.unit_amount_decimal} ${el.currency}
+      `
+
       let $clone = document.importNode($template, true)
       $fragment.appendChild($clone)
     });
