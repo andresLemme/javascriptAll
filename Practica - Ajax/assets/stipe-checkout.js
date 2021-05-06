@@ -12,10 +12,12 @@ const $tacos = document.getElementById("tacos"),
   };
 let prices, products;
 
+const moneyFormat = (num) => `$${num.slice(0, -2)}.${num.slice(-2)}`;
+
 Promise.all([
-  fetch("https://api.stripe.com/v1/products", fetchOption),
-  fetch("https://api.stripe.com/v1/prices", fetchOption),
-])
+    fetch("https://api.stripe.com/v1/products", fetchOption),
+    fetch("https://api.stripe.com/v1/prices", fetchOption),
+  ])
   .then((responses) => Promise.all(responses.map((res) => res.json())))
   .then((json) => {
     products = json[0].data;
@@ -31,9 +33,7 @@ Promise.all([
       $template.querySelector("img").alt = productData[0].name;
       $template.querySelector("figcaption").innerHTML = `${productData[0].name}
       <br>
-      $ ${el.unit_amount_decimal.slice(0, -2)}.${el.unit_amount_decimal.slice(
-        -2
-      )} ${el.currency}
+       ${moneyFormat(el.unit_amount_decimal)} ${el.currency}
       `;
 
       let $clone = document.importNode($template, true);
@@ -51,12 +51,17 @@ Promise.all([
 
 document.addEventListener("click", (e) => {
   if (e.target.matches(".taco *")) {
-    let priceID = e.target.parentElement.getAttribute("data-price");
+    let price = e.target.parentElement.getAttribute("data-price");
     //   console.log(priceID)
-    stripe(STRIPE_KEYS.public)
+    Stripe(STRIPE_KEYS.public)
       .redirectToCheckout({
-        lineItems: [{price: priceID, quantity: 1}],
-          mode: "subscription"
+        line_items: [{
+          price,
+          quantity: 1
+        }],
+        mode: "subscription",
+        successUrl: "http://127.0.0.1:5500/Practica%20-%20Ajax/assets/stripe-success.html",
+        cancelUrl: "http://127.0.0.1:5500/Practica%20-%20Ajax/assets/stripe-cancel.html"
       })
       .then((res) => {
         if (res.error) {
