@@ -25,7 +25,7 @@
         <h3></h3>
         <div></div>
         <img src="" alt="" />
-        <a href=""></a>
+        <a href="" target="_blank"></a>
       </article>
     </template>
     <script>
@@ -54,7 +54,15 @@
                 json.forEach((el) => {
                   $template.querySelector("h3").innerHTML = el.show.name;
                   $template.querySelector("div").innerHTML = el.show.summary ? el.show.summary : "Sin descripcion";
-                  $template.querySelector("img").src = el.show.image.medium ? el.show.image.medium : "http://static.tvmaze.com/images/no-img/no-img-portrait-text.png"
+                  
+                  $template.querySelector("a").href = el.show.url ? el.show.url : "#";
+                  $template.querySelector("a").textContent = el.show.url ? "ver mas..." : "";
+                  
+                  $template.querySelector("img").src = el.show.image.medium ? el.show.image.medium : "http://static.tvmaze.com/images/no-img/no-img-portrait-text.png";
+                  $template.querySelector("img").alt = el.show.name;
+                  $template.querySelector("img").style.maxWidth = "100%"
+
+
                   let $clone = document.importNode($template, true);
                   $fragment.appendChild($clone);
                 });
