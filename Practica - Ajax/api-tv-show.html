@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador de Shows de TV</title>
+    <style>
+      .grid-fluid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      .loader {
+        display: block;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Buscador de Shows de TV</h1>
+    <input type="search" id="search" placeholder="Buscar shows de tv..." />
+    <section id="shows" class="grid-fluid"></section>
+    <template id="show-template">
+      <article class="show">
+        <h3></h3>
+        <div></div>
+        <img src="" alt="" />
+        <a href=""></a>
+      </article>
+    </template>
+    <script>
+     $shows = document.getElementById("shows"),
+      $template = document.getElementById("show-template").content,
+     $fragment = document.createDocumentFragment();
+
+      document.addEventListener("keypress", async (e) => {
+        if (e.target.matches("#search")) {
+          // console.log(e.key, e.keyCode)
+          if ((e.key = "Enter")) {
+            try {
+              $shows.innerHTML = `<img class="loader" src="../Practica - DOM/assets/Iphone-spinner-2.gif" alt="cargando...">`;
+
+              let query = e.target.value.toLowerCase();
+              const api = `http://api.tvmaze.com/search/shows?q=${query}`;
+              const res = await fetch(api);
+              const json = await res.json();
+
+              console.log(api, res, json);
+              if (!res.ok)
+                throw { status: res.status, statusText: res.statusText };
+              if (json.length === 0) {
+                $shows.innerHTML = `<h2>No existen resultados de shows para el criterio de búsqueda <mark>${query}</mark></h2>`;
+              } else {
+                json.forEach((el) => {
+                  $template.querySelector("h3").innerHTML = el.show.name;
+                  $template.querySelector("div").innerHTML = el.show.summary ? el.show.summary : "Sin descripcion";
+                  $template.querySelector("img").src = el.show.image.medium ? el.show.image.medium : "http://static.tvmaze.com/images/no-img/no-img-portrait-text.png"
+                  let $clone = document.importNode($template, true);
+                  $fragment.appendChild($clone);
+                });
+                $shows.innerHTML = "";
+                $shows.appendChild($fragment);
+              }
+            } catch (err) {
+              let message = err.statusText || "Ocurrio un error";
+              $shows.innerHTML = `<p>Error ${err.status}: ${message}</p>`;
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
