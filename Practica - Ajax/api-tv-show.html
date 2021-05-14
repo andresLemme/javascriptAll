@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buscador de Shows de TV</title>
     <style>
+        html{
+            text-align: center;
+        }
       .grid-fluid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -57,6 +60,8 @@
                   
                   $template.querySelector("a").href = el.show.url ? el.show.url : "#";
                   $template.querySelector("a").textContent = el.show.url ? "ver mas..." : "";
+                  
+
                   
                   $template.querySelector("img").src = el.show.image.medium ? el.show.image.medium : "http://static.tvmaze.com/images/no-img/no-img-portrait-text.png";
                   $template.querySelector("img").alt = el.show.name;
