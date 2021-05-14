@@ -17,6 +17,9 @@
         display: flex;
         flex-direction: column-reverse;
       }
+      .song blockquote, .artist p{
+          white-space:pre-wrap;
+      }
       .loader {
         display: none;
         margin: auto;
@@ -70,6 +73,7 @@
 
       $form.addEventListener("submit", async (e) => {
         e.preventDefault();
+       
 
         try {
           $loader.style.display = "block";
@@ -105,10 +109,17 @@
             }
             $loader.style.display = "none";
             $artist.innerHTML = $artistTemplete
+          
 
-            if (songData.song === null) {
-                $artistTemplete = `<h2>No existe la canción ${song}</h2>`
+            if (songData.error) {
+                $songTemplete = `<h2>No existe la canción <mark>${song}<mark></h2>`
+            }else{
+              $songTemplete = `
+              <h2>${song.toUpperCase()}</h2>
+              <blockquote>${songData.lyrics}</blockquote>
+              `  
             }
+            $song.innerHTML = $songTemplete
 
         } catch (err) {
           console.log(err);
@@ -116,6 +127,11 @@
           $error.innerHTML = `<p>Error ${err.status}: ${message}</p>`;
           $loader.style.display = "none";
         }
+
+        setTimeout(() => {
+        $form.reset()
+        }, 1000);
+        
       });
     </script>
   </body>
