@@ -1,9 +1,10 @@
 const NAME = "malvestida"
-const DOMAIN = `https://${NAME}.COM`
+const DOMAIN = `https://${NAME}.com`
 const SITE = `${DOMAIN}/wp-json`
 const API_WP = `${SITE}/wp/v2`
 const POSTS = `${API_WP}/posts?_embed`
 const POST = `${API_WP}/posts`
+const CATEGORIES = `${API_WP}/categories`
 const SEARCH = `${API_WP}/search?_embed&search`
 
 export default{
@@ -12,6 +13,7 @@ export default{
     SITE,
     API_WP,
     POSTS,
+    CATEGORIES,
     POST,
     SEARCH
 }
