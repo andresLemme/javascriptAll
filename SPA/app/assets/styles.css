@@ -41,3 +41,26 @@ img{
     width: 4rem;
     height: 4rem;
 }
+
+.form-search{
+    margin: auto;
+    text-align: center;
+}
+.form-search input {
+    display: block;
+    margin: auto;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.header{
+    position: sticky;
+    top: 0;
+    text-align: center;
+    background-color: #fff;
+}
+.header >* {
+ margin: 1rem auto;   
+}
