@@ -1,13 +1,19 @@
-export function PostCard(props){
-    let{date, title, link} = props
-    return `
+export function PostCard(props) {
+  let { date, title, slug, _embedded } = props;
+  let dateFormat = new Date(date).toLocaleString();
+
+  let urlPoster = _embedded["wp:featuredmedia"]
+    ? _embedded["wp:featuredmedia"][0].source_url
+    : "app/assets/Iphone-spinner-2.gif";
+
+  return `
         <article class="post-card">
-            <img src="https://placeimg.com/200/200/any" alt="${title.rendered}">
+            <img src="${urlPoster}" alt="${title.rendered}">
             <h2>${title.rendered}</h2>
             <p>
-            <time datetime="${date}">${date}</time>
-            <a href="${link}" target="_blank">Ver publicacion</a>
+            <time datetime="${date}">${dateFormat}</time>
+            <a href="#${slug}">Ver publicacion</a>
             </p>
-        <article>
-    `
+        </article>
+    `;
 }

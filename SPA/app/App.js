@@ -17,15 +17,15 @@ export function App() {
     url: api.POSTS,
     cbSuccess: (posts) => {
       console.log(posts);
-      let html = ""
-      posts.forEach((post) => html += PostCard(post));
+      let html = " ";
+      posts.forEach((post) => (html += PostCard(post)));
       document.querySelector(".loader").style.display = "none";
-      document.getElementById("posts").innerHTML = html 
-
+      document.getElementById("posts").innerHTML = html;
+      
     },
   });
-
-  //   document.getElementById(
+}
+ //   document.getElementById(
   //     "root"
   //   ).innerHTML = `<h1>Bienvenidos a mi primer SPA con Vanilla Js</h1>`;
   //   ajax({
@@ -43,4 +43,3 @@ export function App() {
   //   })
 
   //   console.log(api);
-}
