@@ -5,6 +5,7 @@ import { Loader } from "./components/Loader.js";
 import { Header } from "./components/Header.js";
 import { Posts } from "./components/Posts.js";
 import { PostCard } from "./components/PostCard.js";
+import { Router } from "./components/router.js";
 
 export function App() {
   const $root = document.getElementById("root");
@@ -12,18 +13,10 @@ export function App() {
   $root.appendChild(Header());
   $root.appendChild(Posts());
   $root.appendChild(Loader());
+  
+  Router()
 
-  ajax({
-    url: api.POSTS,
-    cbSuccess: (posts) => {
-      console.log(posts);
-      let html = " ";
-      posts.forEach((post) => (html += PostCard(post)));
-      document.querySelector(".loader").style.display = "none";
-      document.getElementById("posts").innerHTML = html;
-      
-    },
-  });
+
 }
  //   document.getElementById(
   //     "root"

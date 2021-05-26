@@ -3,9 +3,11 @@ export function Menu(){
     $menu.classList.add("menu")
     $menu.innerHTML = `
     <a href="#/">Home</a>
-    <span></span>
+    <span>-</span>
     <a href="#/search">Search</a>
-    <span></span>
+    <span>-</span>
+    <a href="#/contacto">Contacto</a>
+    <span>-</span>
     <a href="#/http://www.teinvito.com.ar/" target="_blank" rel="noopener">Teinvito</a>
     <span></span>
     `
