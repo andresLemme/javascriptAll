@@ -2,19 +2,19 @@ import { ajax } from "../helpers/ajax.js";
 import api from "../helpers/wp_api.js";
 import { PostCard } from "./PostCard.js";
 
-export function Router() {
+export async function Router() {
   let { hash } = location;
 
   console.log(hash);
 
   if (!hash || hash === "#/") {
-    ajax({
+    await ajax({
         url: api.POSTS,
         cbSuccess: (posts) => {
           //   console.log(posts);
           let html = " ";
           posts.forEach((post) => (html += PostCard(post)));
-          document.querySelector(".loader").style.display = "none";
+          // document.querySelector(".loader").style.display = "none";
           document.getElementById("posts").innerHTML = html;
         },
       });
@@ -28,6 +28,6 @@ export function Router() {
     document.getElementById("posts").innerHTML =
       "<h2>Aqui va contenido del post seleccionado</h2>"
   }
-
+  document.querySelector(".loader").style.display = "none";
 
 }
